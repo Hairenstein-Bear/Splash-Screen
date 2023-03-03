@@ -1,0 +1,213 @@
+<html>
+    <head>
+        <style>
+            *{
+                margin:0;
+                padding: 0;
+            }
+            @font-face {
+                font-family: QuentinCaps;
+                src: url(QuentinCaps.ttf);
+}
+            body{
+                overflow: hidden;
+                background-color: black;
+                height: 100vh;
+                /* display: flex;
+                align-items: center;
+                justify-content: center; */
+            }
+            #wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: initial;
+            }
+            @keyframes smoke{
+                0%{
+                -webkit-transform: scaleY(1);
+                -webkit-transform: rotate(-0deg);
+                transform: scaleY(1) rotate(-0deg);;
+                }
+                10%{
+                -webkit-transform: rotate(-36deg);
+                -webkit-transform: scaleY(1.2);
+                transform: rotate(-36deg) scaleY(1.2);
+                }
+                20%{
+                    -webkit-transform: scaleY(1.4);
+                    -webkit-transform: rotate(-72deg);
+                }
+                30%{
+                    -webkit-transform: scaleY(1.6);
+                
+                    -webkit-transform: rotate(-108deg);
+                }
+                40%{
+                    -webkit-transform: scaleY(1.8);
+                    -webkit-transform: rotate(-144deg);
+                }
+                50%{
+                    -webkit-transform: scaleY(2) ;
+                
+                    -webkit-transform: rotate(-180deg);
+                }
+                60%{
+                    -webkit-transform:scaleY(1.8);
+                
+                    -webkit-transform: rotate(-216deg);
+                }
+                70%{
+                    -webkit-transform: scaleY(1.6) ;
+                
+                    -webkit-transform: rotate(-252deg);
+                }
+                80%{
+                    -webkit-transform: scaleY(1.4);
+                
+                    -webkit-transform: rotate(-288deg);
+                }
+                90%{
+                    -webkit-transform: scaleY(1.2) ;
+                
+                    -webkit-transform: rotate(-324deg);
+                }
+                100%{
+                    -webkit-transform: scaleY(1) ;
+                    -webkit-transform: rotate(-360deg);
+                }
+            }
+            @keyframes hotLink{
+                10%{
+                    color:darkgrey;
+                    -webkit-text-stroke: .5px rgb(85, 10, 10);
+                }
+                20%{
+                    -webkit-text-stroke: .5px rgb(185, 0, 0);
+                }
+                30%{
+                    color:grey;
+                    -webkit-text-stroke: 1px rgb(165, 4, 4);
+                }
+                40%,50%,60%{
+                    -webkit-text-stroke: 1px rgb(185,0,0);
+                }
+                70%{
+                    -webkit-text-stroke: 1px rgb(165, 4, 4);
+                }
+                80%{
+                    color:grey;
+                    -webkit-text-stroke: .5px rgb(165, 4, 4);
+                }
+                100%{
+                    color: darkgrey;
+                    -webkit-text-stroke: .5px rgb(185, 0, 0);
+                }
+            }
+            .smoke{
+
+                animation: smoke infinite;
+                animation-timing-function: linear;
+                filter:invert();
+                height: 200%;
+                width: 200%;
+                position: absolute;
+
+                opacity: .6;
+                -webkit-animation: smoke 250s infinite linear reverse;
+                -moz-animation: smoke 250s infinite linear reverse;
+                -o-animation: smoke 250s infinite linear reverse;
+                animation: smoke 250s infinite linear reverse;
+            }
+            #smoke1{               
+                -webkit-animation: smoke 160s infinite linear reverse;
+                -moz-animation: smoke 160s infinite linear reverse;
+                -o-animation: smoke 160s infinite linear reverse;
+                animation: smoke 160s infinite linear reverse;
+                opacity: .5;
+                top: 0%;
+                left: 20%;
+            }
+            #smoke2{
+                -webkit-animation: smoke 170s infinite linear reverse;
+                -moz-animation: smoke 170s infinite linear reverse;
+                -o-animation: smoke 170s infinite linear reverse ;
+                animation: smoke 170s infinite linear reverse;
+                opacity: .4;
+                top: -10%;
+                left: -10%;
+            }
+            #smoke3{
+                -webkit-animation: smoke 180s infinite linear reverse;
+                -moz-animation: smoke 180s infinite linear reverse;
+                -o-animation: smoke 180s infinite linear reverse;
+                animation: smoke 180s infinite linear reverse;
+                opacity: .3;
+                top: 10%;
+                left: -30%;
+            }
+            #leftBorder{
+                position:relative;
+                font-size: 3em;
+                text-align: center;
+                height:100%;
+                background: black;
+                border-radius: 5%;
+                border: goldenrod 5px groove;
+                margin: 3em 0 0 0;
+                /* background: linear-gradient(90deg, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%); */
+                color: white;
+                z-index: 4;
+                /* -webkit-text-stroke: .5px red; */
+            }
+            #leftBorder ul, li{
+                list-style: none;
+                margin: 1em;
+            }
+            #leftBorder a, 
+            a:visited, 
+            #linkWrap a:link{
+                margin: 1em;
+                color: white;
+                text-decoration: none;
+                font-family: QuentinCaps;
+            }
+            #linkWrap a:hover{
+                text-shadow: 2px 2px -6px rgba(0, 0, 0, 0.5);
+                -webkit-text-stroke: .5px rgb(85, 10, 10);
+                animation: hotLink .4s;
+                animation-timing-function: ease-in-out;
+                animation-fill-mode:forwards;
+            }
+            #linkWrap{
+                z-index: 4;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div>
+                <img src="me.png" style="display: block;">
+            </div>
+            <div>
+                <img class= "smoke" id="smoke1" src="smoke.png">
+                <img class= "smoke" id="smoke2" src="smoke.png">
+                <img class= "smoke" id="smoke3" src="smoke.png">
+                <!-- <img class= "smoke reverse" style="top:-80%; left: -20%;" src="smoke.png">
+                <img class= "smoke reverse" style="top:-20%; left: -20%;"src="smoke.png">-->
+                <!-- <img class= "smoke reverse" src="smoke.png">  -->
+            </div>
+            <div id="leftBorder">
+                <div id="linkWrap">
+                    <ul>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
